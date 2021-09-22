@@ -5,7 +5,7 @@ var options = {
 var io = require('socket.io')(server, options);
 var mysql = require('mysql'); // import mysql
 
-let players = {};
+let players = {}; // {"socketID": Player情報, "socketID": Player情報, ..}
 let boardText="test";
 var connection = mysql.createConnection({ // connect database
     host: 'localhost',
@@ -37,6 +37,7 @@ connection.connect(function(err) {
 
 function Player (id) {
     this.id = id;
+    this.name = "No Name"
     this.x = 0;
     this.y = 0;
     this.z = 0;
@@ -77,18 +78,22 @@ io.sockets.on('connection', function(socket) {
         console.log("now Players ↓");
         console.log(players);
     });
+
     socket.on('positionUpdate', function(data){
         players[data.id].x = data.x;
         players[data.id].y = data.y;
         players[data.id].z = data.z;
-
         socket.broadcast.emit('playerMoved', data);
+    });
+
+    socket.on('broadSetName', function (name) {
+        players[socket.id].name = name;
+        socket.broadcast.emit ('NameUpdate', {id: socket.id, name: name});
     });
 
     socket.on('disconnect', ()=>{
         console.log("--------------disconnect");
         console.log("disconnect PlayerID = ", socket.id);
-
         socket.broadcast.emit('playerLeaved', socket.id);
         delete players[socket.id];
 
