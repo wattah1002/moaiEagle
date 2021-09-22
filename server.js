@@ -5,7 +5,7 @@ var options = {
 var io = require('socket.io')(server, options);
 var mysql = require('mysql'); // import mysql
 
-var players = [];
+let players = {};
 let boardText="test";
 var connection = mysql.createConnection({ // connect database
     host: 'localhost',
@@ -54,11 +54,14 @@ function Player (id) {
 
 io.sockets.on('connection', function(socket) {
     socket.on('initialize', function() {
-        var idNum = players.length;
-        var newPlayer = new Player(idNum);
-        players.push(newPlayer);
+        console.log("--------------connect");
+        console.log("connect PlayerID = ", socket.id);
+        var idNum = socket.id;
+        var newPlayer = new Player (idNum);
+        players[idNum] = newPlayer;
         socket.emit('playerData', {id: idNum, players: players});
         socket.broadcast.emit('playerJoined', newPlayer);
+
         connection.query(`SELECT text FROM tb_room WHERE id=1`, (error, result, fields) => {
             if(error) throw error;
             boardText=result[0].text;
@@ -71,6 +74,8 @@ io.sockets.on('connection', function(socket) {
             // socket.emit('loadText', boardText);
             // console.log('loadText emitted.');
         // }); //add
+        console.log("now Players ↓");
+        console.log(players);
     });
     socket.on('positionUpdate', function(data){
         players[data.id].x = data.x;
@@ -78,6 +83,17 @@ io.sockets.on('connection', function(socket) {
         players[data.id].z = data.z;
 
         socket.broadcast.emit('playerMoved', data);
+    });
+
+    socket.on('disconnect', ()=>{
+        console.log("--------------disconnect");
+        console.log("disconnect PlayerID = ", socket.id);
+
+        socket.broadcast.emit('playerLeaved', socket.id);
+        delete players[socket.id];
+
+        console.log("now Players ↓");
+        console.log(players);
     });
 });
 
