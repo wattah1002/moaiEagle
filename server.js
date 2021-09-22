@@ -95,6 +95,15 @@ io.sockets.on('connection', function(socket) {
         console.log("now Players ↓");
         console.log(players);
     });
+    socket.on('boardTextUpdate', function(data){
+        console.log('boardTextUpdate was received.');
+        boardText = data;
+        connection.query(`UPDATE tb_room SET text="${boardText}" WHERE id=1;`, (error, result, fields) => {
+            if(error) throw error;
+            console.log(result);
+        });
+        socket.broadcast.emit('boardTextChanged', data);
+    })
 });
 
 console.log('Server started.');
