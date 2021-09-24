@@ -8,7 +8,8 @@ var mysql = require('mysql'); // import mysql
 let players = {}; // {"socketID": Player情報, "socketID": Player情報, ..}
 let boardText="test";
 var connection = mysql.createConnection({ // connect database
-    host: 'localhost',
+    // host: 'localhost',
+    host: 'ip-172-17-1-7', // show variables like 'hostname';
     user: 'root',
     password: 'password',
     database: 'db_moaiEagle'
