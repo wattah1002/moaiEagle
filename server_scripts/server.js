@@ -1,4 +1,7 @@
-var server = require('http').createServer();
+var server = require('http').createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+});
 var options = {
     cors: true
 }
@@ -113,5 +116,5 @@ io.sockets.on('connection', function(socket) {
     })
 });
 
-console.log('Server started.');
 server.listen(3000);
+console.log('Server started.');
