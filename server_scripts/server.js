@@ -45,6 +45,9 @@ function Player (id) {
     this.x = 0;
     this.y = 0;
     this.z = 0;
+    this.rx = 0;
+    this.ry = 180;
+    this.rz = 0;
     this.entity = null;
 }
 
@@ -80,6 +83,7 @@ io.sockets.on('connection', function(socket) {
             // socket.emit('loadText', boardText);
             // console.log('loadText emitted.');
         // }); //add
+
         console.log("now Players ↓");
         console.log(players);
     });
@@ -88,6 +92,9 @@ io.sockets.on('connection', function(socket) {
         players[data.id].x = data.x;
         players[data.id].y = data.y;
         players[data.id].z = data.z;
+        players[data.id].rx = data.rx;
+        players[data.id].ry = data.ry;
+        players[data.id].rz = data.rz;
         socket.broadcast.emit('playerMoved', data);
     });
 
@@ -95,6 +102,20 @@ io.sockets.on('connection', function(socket) {
         players[socket.id].name = name;
         socket.broadcast.emit ('NameUpdate', {id: socket.id, name: name});
     });
+
+    socket.on('broadTalk', function(data) {
+        socket.broadcast.emit('displayMessage', {id: socket.id, message: data});
+    });
+
+    socket.on('boardTextUpdate', function(data){
+        console.log('boardTextUpdate was received.');
+        boardText = data;
+        connection.query(`UPDATE tb_room SET text="${boardText}" WHERE id=1;`, (error, result, fields) => {
+            if(error) throw error;
+            console.log(result);
+        });
+        socket.broadcast.emit('boardTextChanged', data);
+    })
 
     socket.on('disconnect', ()=>{
         console.log("--------------disconnect");
@@ -105,15 +126,7 @@ io.sockets.on('connection', function(socket) {
         console.log("now Players ↓");
         console.log(players);
     });
-    socket.on('boardTextUpdate', function(data){
-        console.log('boardTextUpdate was received.');
-        boardText = data;
-        connection.query(`UPDATE tb_room SET text="${boardText}" WHERE id=1;`, (error, result, fields) => {
-            if(error) throw error;
-            console.log(result);
-        });
-        socket.broadcast.emit('boardTextChanged', data);
-    })
+
 });
 
 console.log('Server started.');
