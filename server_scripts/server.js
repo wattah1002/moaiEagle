@@ -1,7 +1,7 @@
 var server = require('http').createServer();
 var options = {
     cors: true
-}
+};
 var io = require('socket.io')(server, options);
 var mysql = require('mysql'); // import mysql
 
@@ -56,7 +56,7 @@ function Player (id) {
 // }
 
 io.sockets.on('connection', function(socket) {
-    console.log('port 3000 connectioned.')
+    console.log('port 3000 connectioned.');
     socket.on('initialize', function() {
         console.log("--------------connect");
         console.log("connect PlayerID = ", socket.id);
