@@ -1,7 +1,4 @@
-var server = require('http').createServer(function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World\n');
-});
+var server = require('http').createServer();
 var options = {
     cors: true
 }
@@ -59,6 +56,7 @@ function Player (id) {
 // }
 
 io.sockets.on('connection', function(socket) {
+    console.log('port 3000 connectioned.')
     socket.on('initialize', function() {
         console.log("--------------connect");
         console.log("connect PlayerID = ", socket.id);
@@ -116,5 +114,5 @@ io.sockets.on('connection', function(socket) {
     })
 });
 
-server.listen(3000);
 console.log('Server started.');
+server.listen(3000);
