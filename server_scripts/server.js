@@ -1,4 +1,7 @@
-var server = require('http').createServer();
+var server = require('http').createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+});
 var options = {
     cors: true
 };
@@ -8,9 +11,9 @@ var mysql = require('mysql'); // import mysql
 let players = {}; // {"socketID": Player情報, "socketID": Player情報, ..}
 let boardText="test";
 var connection = mysql.createConnection({ // connect database
-    // host: 'localhost',
+    host: 'localhost',
     // host: 'ip-172-17-1-7', // show variables like 'hostname';
-    host: 'db.cnr7ujyje98h.us-east-1.rds.amazonaws.com', //エンドポイント
+    // host: 'db.cnr7ujyje98h.us-east-1.rds.amazonaws.com', //エンドポイント
     user: 'root',
     password: 'password',
     database: 'db_moaiEagle'
