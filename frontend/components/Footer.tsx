@@ -23,7 +23,7 @@ export default function Home() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               ブンクラ
             </Typography>
-            <Button color="inherit">Login</Button>
+            {/* <Button color="inherit">Login</Button> */}
           </Toolbar>
         </AppBar>
       </Box>

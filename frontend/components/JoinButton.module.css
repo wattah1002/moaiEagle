@@ -1,0 +1,18 @@
+.joinButton {
+    margin-top: 100px;
+    position: relative;
+    width: 300px;
+    padding: 30px 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 1;
+    background-color: #FFFF00;
+}
+
+.joinButton:hover {
+    background-color: #e7e300;
+}

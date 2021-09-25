@@ -10,51 +10,44 @@ import styles from "./CardBlock.module.css";
 export default function Home() {
   return (
     <div >
+        <div className={styles.cardLabel}>step1</div>
         <Grid container>
-            <Grid item xs={6} className={styles.parent}>
-                <Box
-                    sx={{
-                        // width: 300,
-                        height: 300,
-                        bgcolor: 'primary.main',
-                    }}
-                    className={styles.child}
-                />
-                <p className={styles.cardtext}>text</p>
+            <Grid item xs={6} className={styles.cartTextParent}>
+                <div className={styles.cardTextBg}>
+                    <div className={styles.cardTextChild}>
+                        <p className={styles.cardTextTitle}>みんなで教室を装飾しよう</p>
+                        <p className={styles.cardTextContent}>自分たちの教室に動画や画像を自由に展示できる！</p>
+                    </div>
+                </div>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} className={styles.cardImageParent}>
                 <Image
-                    // width={500}
-                    height={400}
-                    // layout="responsive"
-                    // className={styles.card}
+                    layout="fill"
+                    objectFit={"cover"}
                     src={headPic}
                     alt="HeadPicture"
                 />
             </Grid>
+        </Grid>
 
-            <Grid item xs={6}>
-                <Box
-                    sx={{
-                        // width: 300,
-                        height: 300,
-                        bgcolor: 'primary.main',
-                    }}
-                >
-                    text
-                </Box>
+        <div className={styles.cardLabel}>step2</div>
+        <Grid container>
+            <Grid item xs={6} className={styles.cartTextParent}>
+                <div className={styles.cardTextBg}>
+                    <div className={styles.cardTextChild}>
+                        <p className={styles.cardTextTitle}>みんなで文化祭を楽しもう</p>
+                        <p className={styles.cardTextContent}>実際に装飾した教室を散策できる！</p>
+                    </div>
+                </div>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} className={styles.cardImageParent}>
                 <Image
-                    // width={500}
-                    height={400}
-                    // layout="responsive"
-                    // className={styles.card}
+                    layout="fill"
+                    objectFit={"cover"}
                     src={headPic}
                     alt="HeadPicture"
                 />
             </Grid>
-
         </Grid>
 
     </div>

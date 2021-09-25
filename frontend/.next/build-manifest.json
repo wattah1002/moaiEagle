@@ -1,42 +1,48 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
-  "ampDevFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [
+    "static/chunks/webpack.js",
+    "static/chunks/amp.js"
+  ],
   "lowPriorityFiles": [
-    "static/17LvyYM2Nx23DIIuDChST/_buildManifest.js",
-    "static/17LvyYM2Nx23DIIuDChST/_ssgManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
   ],
   "pages": {
     "/": [
-      "static/chunks/webpack-fb76148cfcfb42ca18eb.js",
-      "static/chunks/framework-0441fae7fd130f37dee1.js",
-      "static/chunks/main-8d15616dad332ac01c02.js",
-      "static/chunks/513-8e148c134edabdf2b9b7.js",
-      "static/chunks/777-9ddf4950be6557dd96a1.js",
-      "static/css/0ecfd0380c7afd95d019.css",
-      "static/chunks/pages/index-4322f6b4874de1399ec9.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/chunks/webpack-fb76148cfcfb42ca18eb.js",
-      "static/chunks/framework-0441fae7fd130f37dee1.js",
-      "static/chunks/main-8d15616dad332ac01c02.js",
-      "static/css/7fd4ecd0457a6aa5c87b.css",
-      "static/chunks/pages/_app-eae96ec6158df4673060.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-fb76148cfcfb42ca18eb.js",
-      "static/chunks/framework-0441fae7fd130f37dee1.js",
-      "static/chunks/main-8d15616dad332ac01c02.js",
-      "static/chunks/pages/_error-737a04e9a0da63c9d162.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
+    ],
+    "/next/dist/pages/_error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/next/dist/pages/_error.js"
+    ],
+    "/selectschool": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/selectschool.js"
     ],
     "/world": [
-      "static/chunks/webpack-fb76148cfcfb42ca18eb.js",
-      "static/chunks/framework-0441fae7fd130f37dee1.js",
-      "static/chunks/main-8d15616dad332ac01c02.js",
-      "static/chunks/513-8e148c134edabdf2b9b7.js",
-      "static/chunks/pages/world-31fc3fcadbf5715d97ef.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/world.js"
     ]
   },
   "ampFirstPages": []

@@ -2,13 +2,64 @@
     width: 50px;
 }
 
-.cardtext {
-    margin: 0;
+
+
+.cardTextParent {
+    /* position: relative; */
+    height: 300px;
 }
 
-.parent {
+.cardTextBg {
+    margin: 0;
+    /* position: absolute; */
+    padding-left: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    position:relative;
+}
+.cardTextChild {
+    margin: 0;
+    /* font-size: 2em; */
+    /* font-weight: bold; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.cardTextTitle {
+    margin: 0 0 10px 0;
+    font-size: 2em;
+    font-weight: bold;
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%); */
+}
+.cardTextContent {
+    margin: 0;
+    font-size: 1.5em;
+    /* font-weight: bold; */
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%); */
+}
+
+.cardImageParent {
+    height: 300px;
     position: relative;
 }
-.parent {
-    position: absolute;
+
+.cardLabel {
+    margin-top: 40px;
+    position: relative;
+    width: 200px;
+    padding: 10px 20px;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 1;
+    background-color: yellow;
 }

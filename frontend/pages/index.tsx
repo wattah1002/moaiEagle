@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeaderPic from "../components/HeaderPic";
 import CardBlock from "../components/CardBlock";
+import JoinButton from "../components/JoinButton";
 
 
 
@@ -21,10 +22,11 @@ export default function Home() {
         <title>ブンクラ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header name="ログイン"/>
       <HeaderPic />
       <main>
         <CardBlock />
+        <JoinButton />
         {/* <button onClick={postHello}>
             send
           </button>

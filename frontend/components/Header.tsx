@@ -1,13 +1,13 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import Link from "next/link";
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 
-export default function Home() {
+export default function Home(data) {
   return (
     <div>
         {/* <Box sx={{ flexGrow: 1 }}> */}
@@ -23,9 +23,15 @@ export default function Home() {
               {/* <MenuIcon /> */}
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              ブンクラ
+              <Link href="/">
+                ブンクラ
+              </Link>
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit">
+              <Link href="/selectschool">
+                {data.name}
+              </Link>
+            </Button>
           </Toolbar>
         </AppBar>
       {/* </Box> */}
