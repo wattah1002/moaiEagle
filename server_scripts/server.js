@@ -21,6 +21,7 @@ var mysql = require('mysql'); // import mysql
 
 let players = {}; // {"socketID": Player情報, "socketID": Player情報, ..}
 let boardText="test";
+let mainImg;
 var connection = mysql.createConnection({ // connect database
     // host: 'localhost',
     host: 'db.cnr7ujyje98h.us-east-1.rds.amazonaws.com', //エンドポイント
@@ -88,6 +89,14 @@ io.sockets.on('connection', function(socket) {
             console.log(boardText);
             socket.emit('loadText', boardText);
             console.log('loadText emitted.');
+        });
+        // 画像のやりとり
+        connection.query(`SELECT img FROM tb_room WHERE id=1`, (error, result, fields) => {
+            if(error) throw error;
+            mainImg=result[0].img;
+            console.log(mainImg);
+            socket.emit('loadImg', mainImg);
+            console.log('loadImg emitted.');
         });
         // コールバック関数にすると動かない
         // loadText(function(){
