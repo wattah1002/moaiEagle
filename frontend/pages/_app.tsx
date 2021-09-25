@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import React from "react";
-import { AppProps } from "next/dist/next-server/lib/router/router";
+import { AppProps } from 'next/app';
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import theme from "../services/theme";
 

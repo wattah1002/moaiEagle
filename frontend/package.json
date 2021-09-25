@@ -1,5 +1,6 @@
 {
   "name": "learn-starter",
+  "homepage": "http://18.214.210.240",
   "version": "0.1.0",
   "private": true,
   "scripts": {
