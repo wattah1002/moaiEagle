@@ -1,10 +1,16 @@
-var server = require('http').createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World\n');
-});
+// var server = require('http').createServer();
+const fs = require('fs');
+const https = require('https');
 var options = {
     cors: true
 };
+
+const server = https.createServer({
+    cert: fs.readFileSync('./cert.pem'),
+    ca: fs.readFileSync('./chain.pem'),
+    key: fs.readFileSync('./key.pem')
+});
+
 var io = require('socket.io')(server, options);
 var mysql = require('mysql'); // import mysql
 
