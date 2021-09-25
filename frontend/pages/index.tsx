@@ -3,15 +3,17 @@ import Iframe from 'react-iframe'
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import HeaderPic from "../components/HeaderPic";
+import CardBlock from "../components/CardBlock";
 
 
 
 export default function Home() {
 
-  function postHello() {
-    const ifr = document.getElementById("game-iframe");
-    ifr.contentWindow.postMessage("hello", "https://playcanv.as/");
-  }
+  // function postHello() {
+  //   const ifr = document.getElementById("game-iframe");
+  //   ifr.contentWindow.postMessage("hello", "https://playcanv.as/");
+  // }
 
   return (
     <div>
@@ -20,15 +22,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <HeaderPic />
       <main>
-        <button onClick={postHello}>
+        <CardBlock />
+        {/* <button onClick={postHello}>
             send
           </button>
           <Iframe id = 'game-iframe'
             url = 'https://playcanv.as/e/p/Nxv2BY8h/'
             position='absolute'
             width='80%'
-            height='90%'/>
+            height='90%'/> */}
       </main>
       <Footer />
     </div>

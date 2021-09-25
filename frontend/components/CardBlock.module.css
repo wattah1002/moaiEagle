@@ -1,0 +1,14 @@
+.card {
+    width: 50px;
+}
+
+.cardtext {
+    margin: 0;
+}
+
+.parent {
+    position: relative;
+}
+.parent {
+    position: absolute;
+}

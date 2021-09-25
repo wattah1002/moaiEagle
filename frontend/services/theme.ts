@@ -10,7 +10,7 @@ const theme = createTheme({
         // type: "dark", // userがダークモードを使用しているかどうかでモードを切り替える
         primary: {
             light: "#757ce8",
-            main: "#121212", // テーマmainカラー
+            main: "#ffffff", // テーマmainカラー
             dark: "#002884",
             contrastText: "#fff444",
         },
