@@ -10,7 +10,7 @@ export default function Home() {
 
   function postHello() {
     const ifr = document.getElementById("game-iframe");
-    ifr.contentWindow.postMessage("hello", "https://playcanv.as/");
+    // ifr.contentWindow.postMessage("hello", "https://playcanv.as/");
   }
 
 //   document.querySelector("#post-message").addEventListener("submit", (e)=>{
