@@ -9,6 +9,11 @@ const server = https.createServer({
     cert: fs.readFileSync('./cert.pem'),
     ca: fs.readFileSync('./chain.pem'),
     key: fs.readFileSync('./key.pem')
+}, function(req, res){
+    res.writeHead(200, {
+        'Content-Type': 'text/plain'
+    });
+    res.end("hello, world.");
 });
 
 var io = require('socket.io')(server, options);
