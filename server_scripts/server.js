@@ -21,7 +21,7 @@ var mysql = require('mysql'); // import mysql
 
 let players = {}; // {"socketID": Player情報, "socketID": Player情報, ..}
 let boardText="test";
-let mainImg;
+let boardImg;
 var connection = mysql.createConnection({ // connect database
     // host: 'localhost',
     host: 'db.cnr7ujyje98h.us-east-1.rds.amazonaws.com', //エンドポイント
@@ -93,9 +93,9 @@ io.sockets.on('connection', function(socket) {
         // 画像のやりとり
         connection.query(`SELECT img FROM tb_room WHERE id=1`, (error, result, fields) => {
             if(error) throw error;
-            mainImg=result[0].img;
-            console.log(mainImg);
-            socket.emit('loadImg', mainImg);
+            boardImg=result[0].img;
+            console.log(boardImg);
+            socket.emit('loadImg', boardImg);
             console.log('loadImg emitted.');
         });
         // コールバック関数にすると動かない
@@ -146,6 +146,16 @@ io.sockets.on('connection', function(socket) {
         console.log("now Players ↓");
         console.log(players);
     });
+
+    socket.on('boardImgUpdate', function(data){
+        console.log('boardImgUpdate was received.');
+        boardImg = data;
+        connection.query(`UPDATE tb_room SET img="${boardImg}" WHERE id=1;`, (error, result, fields) => {
+            if(error) throw error;
+            console.log(result);
+        });
+        socket.broadcast.emit('boardImgChanged', data);
+    })
 
 });
 
