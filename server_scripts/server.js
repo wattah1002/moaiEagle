@@ -154,7 +154,8 @@ io.sockets.on('connection', function(socket) {
             if(error) throw error;
             console.log(result);
         });
-        socket.broadcast.emit('boardImgChanged', data);
+        socket.broadcast.emit('loadImg', data);
+        // socket.broadcast.emit('boardImgChanged', data);
     })
 
 });
