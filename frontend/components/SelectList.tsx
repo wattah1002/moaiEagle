@@ -3,7 +3,7 @@ import styles from "./SelectList.module.css";
 import Link from "next/link";
 import Grid from "@material-ui/core/Grid";
 import Image from 'next/image'
-import headPic from '../public/sample.jpg'
+import headPic from '../public/select.png'
 
 export default function Home() {
   return (

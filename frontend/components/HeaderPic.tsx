@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image'
-import headPic from '../public/sample.jpg'
+import headPic from '../public/headerimage.png'
 import styles from "./HeaderPic.module.css";
 
 export default function Home() {

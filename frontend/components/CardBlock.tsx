@@ -4,7 +4,9 @@ import Box from "@material-ui/core/Box";
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Grid from "@material-ui/core/Grid";
-import headPic from '../public/sample.jpg'
+import step1 from '../public/step1.png';
+import step2 from '../public/step2.png';
+// import school from '../public/school.png';
 import styles from "./CardBlock.module.css";
 
 export default function Home() {
@@ -24,7 +26,7 @@ export default function Home() {
                 <Image
                     layout="fill"
                     objectFit={"cover"}
-                    src={headPic}
+                    src={step1}
                     alt="HeadPicture"
                 />
             </Grid>
@@ -44,7 +46,7 @@ export default function Home() {
                 <Image
                     layout="fill"
                     objectFit={"cover"}
-                    src={headPic}
+                    src={step2}
                     alt="HeadPicture"
                 />
             </Grid>
