@@ -13,7 +13,11 @@ export default function Home() {
         src={headPic}
         alt="HeadPicture"
       />
-      <p className={styles.headtxt}>オンラインで文化祭を楽しもう</p>
+      <div className={styles.headtxt}>
+        {/* <p className={styles.headtxtChild}>文化祭を</p>
+        <p className={styles.headtxtChild}>オンラインで</p> */}
+        <p className={styles.headtxtChild}>文化祭をオンラインで</p>
+      </div>
     </div>
   )
 }

@@ -11,8 +11,28 @@
 .headtxt {
     margin: 0 0 0 10px;
     position: absolute;
-    top: 50%;
-    font-size: 3em;
+    /* top: 80%; */
+    bottom: 5%;
+    font-size: 3.5em;
     font-weight: bold;
     color: white;
+    /* background-color: #118811; */
+}
+
+.headtxtChild {
+    margin: 5px 20px;
+}
+
+@media screen and (max-width: 959px) {
+    .headtxtChild {
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .headtxt {
+        bottom: 3%;
+    }
+    .headtxtChild {
+        font-size: 0.5em;
+    }
 }

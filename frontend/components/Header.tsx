@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
+import Image from 'next/image'
+import MainIcon from '../public/icon_x.png';
 
 export default function Home(data) {
   return (
@@ -24,7 +26,14 @@ export default function Home(data) {
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <Link href="/">
-                ブンクラ
+                <Image
+                  // layout="fill"
+                  // objectFit={"cover"}
+                  width={90}
+                  height={60}
+                  src={MainIcon}
+                  alt="MainIcon"
+                />
               </Link>
             </Typography>
             <Button color="inherit">

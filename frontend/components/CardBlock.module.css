@@ -30,17 +30,10 @@
     margin: 0 0 10px 0;
     font-size: 2em;
     font-weight: bold;
-    /* position: absolute;
-    top: 50%;
-    transform: translateY(-50%); */
 }
 .cardTextContent {
     margin: 0;
     font-size: 1.5em;
-    /* font-weight: bold; */
-    /* position: absolute;
-    top: 50%;
-    transform: translateY(-50%); */
 }
 
 .cardImageParent {
@@ -62,4 +55,22 @@
     font-weight: bold;
     z-index: 1;
     background-color: yellow;
+}
+
+
+@media screen and (max-width: 959px) {
+    .cardTextTitle {
+        font-size: 1.5em;
+    }
+    .cardTextContent {
+        font-size: 1.0em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .cardTextTitle {
+        font-size: 1.2em;
+    }
+    .cardTextContent {
+        font-size: 1.0em;
+    }
 }
